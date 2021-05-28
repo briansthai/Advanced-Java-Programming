@@ -28,6 +28,13 @@ public class GenericsExample {
         String item2 = "Banana";
         printShoppingList(item1, item2);
         printShoppingList("Bread", "Milk", "Eggs");
+
+        /* Liskov Substitution Principle - maintainable, usable code
+         * The substitution principle lets you assign a variable of a given type to a subtype, but does not always apply to types of lists.
+         * We can fix that by using wildcards
+         * When an Object extends another, you can override methods so they have the same name, but perform differently. 
+         * This is seen most commonly in a toString() method.
+         */
     }
 
     //By using the <T> if forces the method to match data types, but allows the method to be flexible
@@ -49,5 +56,21 @@ public class GenericsExample {
         {
             System.out.println(i + 1 + ": " + items[i] + "\n");
         }
+    }
+
+    //With the wildcard, this method can be passed any type (subtype) that extends the building class
+    static void printBuildings(List<? extends Building> buildings)
+    {
+        for (int i = 0; i < buildings.size(); i++) {
+            System.out.println(buildings.get(i).toString() + " " + (i+1));
+        }
+        System.out.println();
+    }
+
+    //With this wildcard, this method can be passed any super type of that object
+    static void addHouseToList(List<? super House> buildings)
+    {
+        buildings.add(new House());
+        System.out.println();
     }
 }
