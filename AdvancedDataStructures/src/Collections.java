@@ -1,7 +1,9 @@
 package AdvancedDataStructures.src;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 public class Collections
 {
@@ -70,7 +72,8 @@ public class Collections
         serveCustomer(queue);
         System.out.println(queue);
 
-        /* HashMap
+        /* 
+         * HashMap
          * When printed it does maintain the order.
          * Also Keys are Unique, and if we try to add two of the same keys to the hashmap, the previous value will be overwritten
          * Hasmaps also allow you to search for an entry with a certain key or value
@@ -87,6 +90,21 @@ public class Collections
         }
         phonebook.clear();
         System.out.println(phonebook);
+
+        /* 
+         * LinkedHashMap
+         * Order is preserved. Ability to choose if you want the elements to be retrieved in the order they were added or the order they have been accessed in
+         * Using 3 arguments in the linked hash map constructor: 1 - initial capacity of map, 2 - Load factor (how full until we grow the map), 3 - Optional: Order F=InsertionOrder T=AccessOrder(Least accessed on top)
+        */
+        LinkedHashMap<String, Integer> phonebook2 = new LinkedHashMap<String, Integer>(4, 0.75f, false);
+        phonebook2.put("Kevin", 12345);
+        phonebook2.put("Jill", 8979);
+        phonebook2.put("Brenda", 4314);
+        System.out.println("\nList of contacts in phonebook");
+        for(Map.Entry<String, Integer> entry: phonebook.entrySet())
+        {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
 
     }
 
