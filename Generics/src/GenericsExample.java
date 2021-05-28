@@ -20,9 +20,9 @@ public class GenericsExample {
         //The following commented line results in an error because we used generics and the compiler is looking specifically for a String for this collection
         //names.add(7);
 
-        List<Character> charList = arrayToList(charArray, new ArrayList<>());
-        List<Boolean> boolList = arrayToList(boolArray, new ArrayList<>());
-        List<Integer> intList = arrayToList(intArray, new ArrayList<>());
+        //List<Character> charList = arrayToList(charArray, new ArrayList<>());
+        //List<Boolean> boolList = arrayToList(boolArray, new ArrayList<>());
+        //List<Integer> intList = arrayToList(intArray, new ArrayList<>());
 
         String item1 = "Apple";
         String item2 = "Banana";
