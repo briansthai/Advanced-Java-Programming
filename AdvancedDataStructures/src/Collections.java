@@ -1,5 +1,6 @@
 package AdvancedDataStructures.src;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 
 public class Collections
@@ -50,4 +51,44 @@ public class Collections
      * Queue 
      * FIFO structures and useful to control access to shared resources
     */
+
+    static void serveCustomer(LinkedList<Customer> queue)
+    {
+        //returns the first customer in the queue (pops the first element out of FIFO)
+        Customer nextCustomer = queue.poll();
+        nextCustomer.serve();
+    }
+
+    public static void main (String[] args)
+    {
+        //Queue
+        LinkedList<Customer> queue = new LinkedList<Customer>();
+        queue.add(new Customer("Sally"));
+        queue.add(new Customer("Brian"));
+        queue.add(new Customer("Ben"));
+        System.out.println(queue);
+        serveCustomer(queue);
+        System.out.println(queue);
+
+        /* HashMap
+         * When printed it does maintain the order.
+         * Also Keys are Unique, and if we try to add two of the same keys to the hashmap, the previous value will be overwritten
+         * Hasmaps also allow you to search for an entry with a certain key or value
+        */
+        HashMap<String, Integer> phonebook = new HashMap<String, Integer>();
+        phonebook.put("Kevin", 12345);
+        phonebook.put("Jill", 8979);
+        phonebook.put("Brenda", 4314);
+        phonebook.put("Brenda", 2222);
+        System.out.println(phonebook);
+        if (phonebook.containsKey("Brenda"))
+        {
+            phonebook.remove("Brenda");
+        }
+        phonebook.clear();
+        System.out.println(phonebook);
+
+    }
+
+   
 }
